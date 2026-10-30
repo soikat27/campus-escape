@@ -1,11 +1,16 @@
-import { describe, it, expect } from "vitest";
+// it("navigates to checkout Page, on click", async () => {
+//         // arrange
+//         render(
+//             <MemoryRouter>
+//                 <CartButton placeCount={3}></CartButton>
+//             </MemoryRouter>  
+//         );
+//         const user = userEvent.setup();
+//         const cartLink = screen.getByRole("link");
 
-describe('something truthy and falsy', () => {
-  it('true to be true', () => {
-    expect(true).toBe(true);
-  });
+//         // act
+//         await user.click(cartLink);
 
-  it('false to be false', () => {
-    expect(false).toBe(false);
-  });
-});
+//         //assert
+        
+//     });

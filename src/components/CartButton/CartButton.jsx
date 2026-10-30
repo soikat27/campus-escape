@@ -5,7 +5,7 @@ import cartIcon from "../../assets/icon/cart-icon.svg";
 export default function CardButton({placeCount}) {
     return (
         <div className={styles.cartButton}>
-            <Link className={styles.link}>
+            <Link className={styles.link} to="/weekend-plan">
                 <div className={styles.iconGroup}>
                     <img className={styles.icon} src={cartIcon} alt="cart-icon" />
                     <div className={styles.badge}>

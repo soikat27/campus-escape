@@ -8,7 +8,6 @@ export default function App() {
   const [placeCount, setPlaceCount] = useState(0);
 
   return (
-  
     <>
       <header>
         <div className={styles.branding}>
