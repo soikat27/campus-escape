@@ -1,0 +1,60 @@
+/* full-bleed header (breaks out of #root width) */
+header {
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* header__main equivalent: cream bar, logo dead-center */
+.branding {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #f4ebe1;
+  padding: 15px 0;
+  box-sizing: border-box;
+}
+
+/* Savant logo displays ~238×95; keep aspect, match that height */
+.branding img {
+  display: block;
+  height: 95px;
+  width: auto;
+  max-width: min(240px, 70vw);
+  object-fit: contain;
+}
+
+/* icons wrapper equivalent: absolute right, vertically centered */
+.branding > :last-child {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Savant .nav: full width, black, centered uppercase links */
+.navBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  width: 100%;
+  background-color: #0b274e; /* sampled from Campus plate in logo */
+  padding: 18px 0;
+  box-sizing: border-box;
+}
+
+.navBar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}

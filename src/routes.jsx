@@ -1,4 +1,4 @@
-import App from "./components/App.jsx";
+import App from "./components/App/App.jsx";
 
 /**
  * note: use react-router provided <Link to="<url_to_another_page>"></Link>
