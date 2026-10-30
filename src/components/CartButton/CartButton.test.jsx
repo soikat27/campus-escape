@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import CartButton from "./CartButton.jsx";
-import { MemoryRouter } from "react-router";
+import { createMemoryRouter, MemoryRouter, RouterProvider } from "react-router";
+import routes from "../../routes.jsx";
+import userEvent from "@testing-library/user-event";
 
 describe("CartButton Component", () => {
     it("renders the cart-icon, placeCount, and cart-icon title", () => {
@@ -20,5 +22,19 @@ describe("CartButton Component", () => {
         expect(title).toBeInTheDocument();
         expect(placeCount).toBeInTheDocument();
         expect(screen.queryByText("1")).not.toBeInTheDocument();
+    });
+
+    it("navigates to the /weekend-plan route, on click", async () => {
+        // arrange
+        const router = createMemoryRouter(routes);
+        render(<RouterProvider router={router}></RouterProvider>);
+        const user = userEvent.setup();
+        const cartLink = screen.getByRole("link", {name: /My weekend/i});
+
+        // act
+        await user.click(cartLink);
+
+        // assert
+        expect(router.state.location.pathname).toBe("/weekend-plan");
     });
 });

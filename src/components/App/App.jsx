@@ -27,7 +27,7 @@ export default function App() {
       <footer>
         <p>© 2026 Soikat Saha. All rights reserved.</p>
           <a href="https://github.com/soikat27/campus-escape">
-              <img src="" alt="github-icon" />
+              <img src="#" alt="github-icon" />
               Source Code
           </a>
       </footer>
