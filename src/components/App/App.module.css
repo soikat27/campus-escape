@@ -21,8 +21,8 @@ header {
   box-sizing: border-box;
 }
 
-/* Savant logo displays ~238×95; keep aspect, match that height */
-.branding img {
+/* logo only (not cart icon nested in CartButton) */
+.branding > img {
   display: block;
   height: 95px;
   width: auto;
@@ -38,7 +38,7 @@ header {
   transform: translateY(-50%);
 }
 
-/* Savant .nav: full width, black, centered uppercase links */
+/* .nav: full width, black, centered uppercase links */
 .navBar {
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@ header {
   flex-wrap: wrap;
   gap: 50px;
   width: 100%;
-  background-color: #0b274e; /* sampled from Campus plate in logo */
+  background-color: #0b274e;
   padding: 18px 0;
   box-sizing: border-box;
 }

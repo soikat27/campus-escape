@@ -2,16 +2,18 @@ import {Link, Outlet} from 'react-router';
 import CartButton from "../CartButton/CartButton.jsx";
 import logo from "../../assets/logo/campus-escape-logo.png";
 import styles from './App.module.css';
+import { useState } from 'react';
 
 export default function App() {
-
+  const [placeCount, setPlaceCount] = useState(0);
 
   return (
+  
     <>
       <header>
         <div className={styles.branding}>
           <img src={logo} alt="logo-campus-escape" />
-          <CartButton />
+          <CartButton placeCount={placeCount} />
         </div>
         <div className={styles.navBar}>
           <Link to="">Restaurant</Link>
