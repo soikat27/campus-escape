@@ -1,0 +1,60 @@
+/* —— Fonts —— */
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/font/Roboto/Roboto-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/font/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* —— Design tokens —— */
+:root {
+  /* Brand colors */
+  --color-blue: #0b274e; /* logo Campus plate / nav */
+  --color-orange: #cc4e01; /* Gettysburg orange / Escape */
+  --color-cream: #f4ebe1; /* header bar */
+  --color-black: #222222;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-sans: "Roboto", system-ui, "Segoe UI", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Text defaults */
+  --text: var(--color-blue);
+  --text-muted: #6b6375;
+  --bg: var(--color-white);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-regular);
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

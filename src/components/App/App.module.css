@@ -7,16 +7,16 @@ header {
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
+  font-family: var(--font-sans);
 }
 
-/* header__main equivalent: cream bar, logo dead-center */
 .branding {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #f4ebe1;
+  background-color: var(--color-cream);
   padding: 15px 0;
   box-sizing: border-box;
 }
@@ -30,7 +30,6 @@ header {
   object-fit: contain;
 }
 
-/* icons wrapper equivalent: absolute right, vertically centered */
 .branding > :last-child {
   position: absolute;
   right: 20px;
@@ -38,7 +37,6 @@ header {
   transform: translateY(-50%);
 }
 
-/* .nav: full width, black, centered uppercase links */
 .navBar {
   display: flex;
   justify-content: center;
@@ -46,15 +44,17 @@ header {
   flex-wrap: wrap;
   gap: 50px;
   width: 100%;
-  background-color: #0b274e;
+  background-color: var(--color-blue);
   padding: 18px 0;
   box-sizing: border-box;
+  font-family: var(--font-sans);
 }
 
 .navBar a {
-  color: #ffffff;
+  color: var(--color-white);
   text-decoration: none;
   font-size: 14.5px;
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
