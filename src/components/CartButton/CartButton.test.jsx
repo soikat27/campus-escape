@@ -27,14 +27,14 @@ describe("CartButton Component", () => {
     it("navigates to the /weekend-plan route, on click", async () => {
         // arrange
         const router = createMemoryRouter(routes);
-        render(<RouterProvider router={router}></RouterProvider>);
+        render(<RouterProvider router={router} />);
         const user = userEvent.setup();
-        const cartLink = screen.getByRole("link", {name: /My weekend/i});
+        const cartLinks = screen.getAllByRole("link", {name: /My weekend/i});
 
-        // act
-        await user.click(cartLink);
-
-        // assert
-        expect(router.state.location.pathname).toBe("/weekend-plan");
+        // act and assert
+        for (const link of cartLinks) {
+            await user.click(link);
+            expect(router.state.location.pathname).toBe("/weekend-plan");
+        }
     });
 });

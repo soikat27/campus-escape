@@ -1,0 +1,273 @@
+/* Full-bleed home content (matches Savant about width behavior) */
+.home {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-sans);
+  color: var(--color-blue);
+  padding: 0;
+}
+
+/* —— Intro hero (Savant homepage hero, static) —— */
+.intro {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: min(65vh, 650px);
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.introBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.introOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-blue) 72%, transparent) 0%,
+    color-mix(in srgb, var(--color-blue) 35%, transparent) 42%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.introContent {
+  position: absolute;
+  left: 65px;
+  bottom: 72px;
+  z-index: 1;
+  max-width: 506px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.introTitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.4vw, 1.8rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.18em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.introCopy {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  font-weight: 300;
+  color: color-mix(in srgb, var(--color-white) 92%, transparent);
+}
+
+.emphasis {
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .introContent {
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 2rem;
+    max-width: none;
+  }
+}
+
+/* —— Bridge —— */
+.bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem 2.5rem;
+  text-align: center;
+  background-color: var(--color-cream);
+}
+
+.bridgeTitle {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: var(--font-weight-medium);
+}
+
+.bridgeText {
+  margin: 0;
+  max-width: 560px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* —— Category grid (Savant story-main: 2 cols, alternating) —— */
+.categoryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.panelImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  background-color: var(--color-cream);
+  color: var(--color-blue);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid color-mix(in srgb, var(--color-blue) 12%, transparent);
+}
+
+.panelImage span {
+  opacity: 0.55;
+}
+
+.panelContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.35rem;
+  min-height: 420px;
+  padding: 2.5rem 2rem;
+  background-color: var(--color-white);
+  text-align: left;
+}
+
+.panelContent h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  color: var(--color-blue);
+}
+
+.panelContent p {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-blue);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 0.7rem 1.35rem;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.cta:hover {
+  background-color: var(--color-orange);
+}
+
+/* —— Closing / My Weekend CTA —— */
+.closing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 3.5rem 1.25rem;
+  text-align: center;
+  background-color: var(--color-cream);
+}
+
+.closing h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: var(--font-weight-medium);
+}
+
+.closing p {
+  margin: 0;
+  max-width: 560px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.ctaDark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.35rem;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.ctaDark:hover {
+  background-color: var(--color-blue);
+}
+
+/* —— Mission —— */
+.mission {
+  padding: 3.5rem 1.25rem 4rem;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.missionInner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.mission h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-white);
+}
+
+.mission p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-white) 88%, transparent);
+}
+
+@media (max-width: 900px) {
+  .categoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .panelImage,
+  .panelContent {
+    min-height: 280px;
+  }
+
+  .panelContent {
+    padding: 2rem 1.5rem;
+  }
+}
