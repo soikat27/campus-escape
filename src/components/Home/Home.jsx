@@ -27,14 +27,14 @@ export default function Home() {
       </section>
 
       <section className={styles.bridge}>
-        <h2 className={styles.bridgeTitle}>Find your kind of escape</h2>
+        <h2 className={styles.bridgeTitle}>Find your kind of escape below {" "} <span className={styles.arrow}>&darr;</span></h2>
+        <p className={styles.bridgeText}>
+          Dinner with friends, an afternoon at a museum, a quiet shop crawl, or
+          a walk somewhere green – start with what sounds good today.
+        </p>
         <p className={styles.bridgeText}>
           Browse a category, open a place for hours and location details, then
           save what you like to My Weekend so Friday plans are already started.
-        </p>
-        <p className={styles.bridgeText}>
-          Dinner with friends, an afternoon at a museum, a quiet shop crawl, or
-          a walk somewhere green—start with what sounds good today.
         </p>
       </section>
 

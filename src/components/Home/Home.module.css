@@ -102,6 +102,11 @@
   margin: 0;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
   font-weight: var(--font-weight-medium);
+  color: var(--color-blue);
+}
+
+.arrow {
+  color: var(--color-orange);
 }
 
 .bridgeText {
@@ -109,6 +114,8 @@
   max-width: 560px;
   font-size: 0.95rem;
   line-height: 1.55;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-blue);
 }
 
 /* —— Category grid (Savant story-main: 2 cols, alternating) —— */

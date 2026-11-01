@@ -34,3 +34,21 @@ describe("Intro section", () => {
         expect(image).toBeInTheDocument();
     });
 });
+
+describe("Bridge section", () => {
+    it("renders the heading", () => {
+        // arrange
+        render(
+            <MemoryRouter>
+                <Home />
+            </MemoryRouter>
+        );
+        const heading = screen.getByRole("heading", {
+            level: 2,
+            name: /Find your kind of escape below/i
+        });
+
+        // assert
+        expect(heading).toBeInTheDocument();
+    });
+});
