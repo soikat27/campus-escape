@@ -1,3 +1,18 @@
+/* sticky footer: fill viewport, main grows, footer stays at bottom */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 /* full-bleed header (breaks out of #root width) */
 header {
   width: 100vw;
@@ -8,6 +23,7 @@ header {
   display: flex;
   flex-direction: column;
   font-family: var(--font-sans);
+  flex-shrink: 0;
 }
 
 .branding {
@@ -57,4 +73,57 @@ header {
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+}
+
+/* footer — navy band matching nav / mission */
+.footer {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1.35rem 1.25rem;
+  background-color: var(--color-blue);
+  color: color-mix(in srgb, var(--color-white) 88%, transparent);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.02em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--color-orange);
+}
+
+.footer img {
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }

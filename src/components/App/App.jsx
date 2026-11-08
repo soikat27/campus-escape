@@ -1,6 +1,7 @@
 import {Link, Outlet} from 'react-router';
 import CartButton from "../CartButton/CartButton.jsx";
 import logo from "../../assets/logo/campus-escape-logo.png";
+import githubIcon from "../../assets/icon/github-icon.svg";
 import styles from './App.module.css';
 import { useState } from 'react';
 
@@ -8,7 +9,7 @@ export default function App() {
   const [placeCount, setPlaceCount] = useState(0);
 
   return (
-    <>
+    <div className={styles.layout}>
       <header>
         <div className={styles.branding}>
           <img src={logo} alt="logo-campus-escape" />
@@ -21,16 +22,16 @@ export default function App() {
           <Link to="/parks">Park & Playground</Link>
         </div>
       </header>
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
-      <footer>
+      <footer className={styles.footer}>
         <p>© 2026 Soikat Saha. All rights reserved.</p>
-          <a href="https://github.com/soikat27/campus-escape">
-              <img src="#" alt="github-icon" />
-              Source Code
-          </a>
+        <a href="https://github.com/soikat27/campus-escape">
+          <img src={githubIcon} alt="" />
+          Source Code
+        </a>
       </footer>
-    </>
+    </div>
   );
 }

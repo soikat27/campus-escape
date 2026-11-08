@@ -70,9 +70,9 @@ export default function Category() {
     }, [category]);
     
     if (loading === true)
-        return <div>Loading...</div>
+        return <div className={styles.status}>Loading...</div>
     else if (error)
-        return <div>{error.message}</div>
+        return <div className={`${styles.status} ${styles.statusError}`}>{error.message}</div>
     else
         return (
             <div>
