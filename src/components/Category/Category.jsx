@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Item from "../Item/Item.jsx";
+import styles from "./Category.module.css";
 
 const categories = {
     restaurants: {
         title: "Restaurants",
-        description: "Cozy cafés for a study break, quick bites between classes, or a sit-down dinner when you want the evening to feel like a plan. Gettysburg runs from local coffee counters to historic taverns. Filter by what you&apos;re in the mood for!",
+        description: "Cozy cafés for a study break, quick bites between classes, or a sit-down dinner when you want the evening to feel like a plan. Gettysburg runs from local coffee counters to historic taverns. Filter by what you're in the mood for!",
         img: () => import("../../assets/image/restaurant.jpg"),
         get: "https://api.geoapify.com/v2/places?categories=catering.restaurant&filter=place:5198f2991cd54e53c05928ac4e933eea4340f00101f9013ee2020000000000c0020692030a47657474797362757267&lang=en&limit=15&apiKey=8f31fbdaf6c04f83a7eba498e40c527d"
     },
@@ -24,7 +25,7 @@ const categories = {
     parks: {
         title: "Park and outdoor spaces",
         description: "Trade the usual loop for fresh air. Find paths, open green, and spots to sit with friends. Good for a reset between study blocks or a low-key Saturday that doesn't need a reservation.",
-        img: () => import("../../assets/image/travel-photo.jpg"),
+        img: () => import("../../assets/image/park.jpg"),
         get: "https://api.geoapify.com/v2/places?categories=natural&filter=place:5198f2991cd54e53c05928ac4e933eea4340f00101f9013ee2020000000000c0020692030a47657474797362757267&lang=en&limit=15&apiKey=8f31fbdaf6c04f83a7eba498e40c527d"
     }  
 };
@@ -75,14 +76,14 @@ export default function Category() {
     else
         return (
             <div>
-                <div className="header">
-                    <div className="content">
+                <div className={styles.header}>
+                    <div className={styles.content}>
                         <h3>{categories[category].title} at Gettysburg</h3>
                         <p>
                             {categories[category].description}
                         </p>
                     </div>
-                    <div className="img">
+                    <div className={styles.img}>
                         <img src={imageUrl} alt={`${category}-image`} />
                     </div>
                 </div>
