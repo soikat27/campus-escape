@@ -15,10 +15,10 @@ export default function App() {
           <CartButton placeCount={placeCount} />
         </div>
         <div className={styles.navBar}>
-          <Link to="">Restaurant</Link>
-          <Link to="">Museum/Cinema</Link>
-          <Link to="">Gift & Sevenior Shop</Link>
-          <Link to="">Park/Playground</Link>
+          <Link to="/restaurants">Restaurant</Link>
+          <Link to="/museums">Museum & Cinema</Link>
+          <Link to="/shops">Gift & Souvenir Shop</Link>
+          <Link to="/parks">Park & Playground</Link>
         </div>
       </header>
       <main>

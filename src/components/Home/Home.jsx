@@ -126,7 +126,7 @@ export default function Home() {
               sit with friends. Good for a reset between study blocks or a
               low-key Saturday that doesn't need a reservation.
             </p>
-            <Link className={styles.sectionButton} to="/park-playground">
+            <Link className={styles.sectionButton} to="/parks">
               Explore parks
             </Link>
           </div>
