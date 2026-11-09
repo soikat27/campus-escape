@@ -37,7 +37,7 @@ header {
   box-sizing: border-box;
 }
 
-/* logo link (img is nested under <Link>, not a direct child) */
+/* logo link */
 .branding > a {
   display: block;
   line-height: 0;
@@ -79,6 +79,20 @@ header {
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+}
+
+.navBar a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+  text-decoration-thickness: 2px;
+}
+
+.navBar a.selectedPage {
+  color: color-mix(in srgb, var(--color-orange) 72%, #fff);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-orange) 72%, #fff);
+  text-underline-offset: 0.35em;
+  text-decoration-thickness: 2px;
 }
 
 /* footer — navy band matching nav / mission */

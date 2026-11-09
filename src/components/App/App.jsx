@@ -7,6 +7,8 @@ import { useState } from 'react';
 
 export default function App() {
   const [placeCount, setPlaceCount] = useState(0);
+  // currentPage legend: 0 --> "/"; 1 --> "/museums"; 2 --> "/"; 3 --> "/shops"; 4 --> "/parks"
+  const [currentPage, setCurrentPage] = useState(0);
 
   return (
     <div className={styles.layout}>
@@ -18,10 +20,10 @@ export default function App() {
           <CartButton placeCount={placeCount} />
         </div>
         <div className={styles.navBar}>
-          <Link to="/restaurants">Restaurant</Link>
-          <Link to="/museums">Museum & Cinema</Link>
-          <Link to="/shops">Gift & Souvenir Shop</Link>
-          <Link to="/parks">Park & Playground</Link>
+          <Link className={(currentPage === 1) && styles.selectedPage} to="/restaurants" onClick={() => setCurrentPage(1)}>Restaurant</Link>
+          <Link className={(currentPage === 2) && styles.selectedPage} to="/museums" onClick={() => setCurrentPage(2)}>Museum & Cinema</Link>
+          <Link className={(currentPage === 3) && styles.selectedPage} to="/shops" onClick={() => setCurrentPage(3)}>Gift & Souvenir Shop</Link>
+          <Link className={(currentPage === 4) && styles.selectedPage} to="/parks" onClick={() => setCurrentPage(4)}>Park & Playground</Link>
         </div>
       </header>
       <main className={styles.main}>
