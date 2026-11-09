@@ -115,6 +115,18 @@
   object-position: center;
 }
 
+/* Place cards list under the header */
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+  padding: 2rem 2rem 2.5rem;
+  box-sizing: border-box;
+}
+
 @media (max-width: 900px) {
   .header {
     grid-template-columns: 1fr;
@@ -128,5 +140,17 @@
 
   .img {
     height: 280px;
+  }
+
+  .items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 1.5rem 1.25rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .items {
+    grid-template-columns: 1fr;
+    padding: 1.25rem 1rem 1.75rem;
   }
 }

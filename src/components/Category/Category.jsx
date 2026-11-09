@@ -17,13 +17,13 @@ const categories = {
         get: "https://api.geoapify.com/v2/places?categories=entertainment.museum,entertainment.cinema&filter=place:5198f2991cd54e53c05928ac4e933eea4340f00101f9013ee2020000000000c0020692030a47657474797362757267&lang=en&limit=15&apiKey=8f31fbdaf6c04f83a7eba498e40c527d"
     },
     shops: {
-        title: "Gift and souvenir shops",
+        title: "Gift & souvenir shops",
         description: "Pick up something small for home, a classmate, or a visitor. Grab Books, local goods, and gifts without a long drive to a mall. Handy before Parents Weekend or when you need one thoughtful stop downtown.",
         img: () => import("../../assets/image/souvenir-shop.jpg"),
         get: "https://api.geoapify.com/v2/places?categories=commercial.gift_and_souvenir&filter=place:5198f2991cd54e53c05928ac4e933eea4340f00101f9013ee2020000000000c0020692030a47657474797362757267&lang=en&limit=15&apiKey=8f31fbdaf6c04f83a7eba498e40c527d"
     },
     parks: {
-        title: "Park and outdoor spaces",
+        title: "Park & outdoor spaces",
         description: "Trade the usual loop for fresh air. Find paths, open green, and spots to sit with friends. Good for a reset between study blocks or a low-key Saturday that doesn't need a reservation.",
         img: () => import("../../assets/image/park.jpg"),
         get: "https://api.geoapify.com/v2/places?categories=natural&filter=place:5198f2991cd54e53c05928ac4e933eea4340f00101f9013ee2020000000000c0020692030a47657474797362757267&lang=en&limit=15&apiKey=8f31fbdaf6c04f83a7eba498e40c527d"
@@ -87,10 +87,10 @@ export default function Category() {
                         <img src={imageUrl} alt={`${category}-image`} />
                     </div>
                 </div>
-                <div className="items">
-                    {data && data.map(item => {
+                <div className={styles.items}>
+                    {data && data.map(item =>
                         <Item
-                            key={ item.properties.place_id}
+                            key={item.properties.place_id}
                             name={item.properties.name}
                             address={(item.properties.address_line2) && item.properties.address_line2}
                             category={(item.properties.categories) && item.properties.categories}
@@ -98,7 +98,7 @@ export default function Category() {
                             phone={(item.properties.contact && item.properties.contact.phone) &&  item.properties.contact.phone}
                             openingHours={(item.properties.opening_hours) && item.properties.opening_hours}
                         />
-                    })}
+                    )}
                 </div>
             </div>
         );
