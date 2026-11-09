@@ -37,8 +37,14 @@ header {
   box-sizing: border-box;
 }
 
-/* logo only (not cart icon nested in CartButton) */
-.branding > img {
+/* logo link (img is nested under <Link>, not a direct child) */
+.branding > a {
+  display: block;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.branding > a img {
   display: block;
   height: 95px;
   width: auto;

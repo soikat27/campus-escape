@@ -78,6 +78,21 @@
   font-weight: var(--font-weight-regular);
 }
 
+.websiteLink {
+  color: var(--color-blue);
+  font-weight: var(--font-weight-medium);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-blue) 35%, transparent);
+  text-underline-offset: 0.15em;
+  word-break: break-all;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.websiteLink:hover {
+  color: var(--color-orange);
+  text-decoration-color: var(--color-orange);
+}
+
 /* only the missing value — not the Phone: / Hours: label */
 .unavailable {
   color: color-mix(in srgb, var(--color-orange) 70%, #8b1a1a);

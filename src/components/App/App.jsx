@@ -12,7 +12,9 @@ export default function App() {
     <div className={styles.layout}>
       <header>
         <div className={styles.branding}>
-          <img src={logo} alt="logo-campus-escape" />
+          <Link to="/">
+            <img src={logo} alt="logo-campus-escape" />
+          </Link>
           <CartButton placeCount={placeCount} />
         </div>
         <div className={styles.navBar}>

@@ -66,13 +66,18 @@ export default function Category() {
 
 
         // cleanup:
+        return () => {
+            setData(null);
+            setError(null);
+            setLoading(true);
+        }
 
     }, [category]);
     
     if (loading === true)
         return <div className={styles.status}>Loading...</div>
     else if (error)
-        return <div className={`${styles.status} ${styles.statusError}`}>{error.message}</div>
+        return <div className={`${styles.status} ${styles.statusError}`}>{`${error.name}: ${error.message}`}</div>
     else
         return (
             <div>

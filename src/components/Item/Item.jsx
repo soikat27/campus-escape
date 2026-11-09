@@ -48,7 +48,11 @@ export default function Item({name, address, category, website, phone, openingHo
                     <p>
                         <span className={styles.fieldLabel}>Website:</span>{" "}
                         <span className={website ? styles.value : styles.unavailable}>
-                            {website ? website : "Website Unavailable"}
+                            {website ? 
+                                <a className={styles.websiteLink} href={website} target="_blank" rel="noopener noreferrer">{website}</a>
+                                    :
+                                "Website Unavailable"
+                            }
                         </span>
                     </p>
                 </div>

@@ -15,9 +15,9 @@
   color: var(--color-blue);
   font-family: var(--font-sans);
   font-size: 0.8rem;
-  font-weight: var(--font-weight-medium);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+  text-transform: none;
   text-align: center;
   box-sizing: border-box;
 }
