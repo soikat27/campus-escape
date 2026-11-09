@@ -3,7 +3,7 @@ import styles from "./Item.module.css";
 import locationIcon from "../../assets/icon/location-icon.png";
 
 export default function Item({name, address, category, website, phone, openingHours}) {
-    const [people, setPeople] = useState(1);
+    const [groupSize, setGroupSize] = useState(1);
 
     function validateInput(event) {
         // 1. clear custom validity
@@ -25,21 +25,46 @@ export default function Item({name, address, category, website, phone, openingHo
                 <img src={locationIcon} alt="loaction-icon" />
             </div>
             <div className={styles.details}>
-                <h4>Name: {name ? name : "Place Unavailable"}</h4>
-                <p>Address: {address ? address : "Address Unavailable"}</p>
+                <h4>
+                    <span className={styles.fieldLabel}>Name:</span>{" "}
+                    <span className={name ? styles.value : styles.unavailable}>
+                        {name ? name : "Place Unavailable"}
+                    </span>
+                </h4>
+                <p>
+                    <span className={styles.fieldLabel}>Address:</span>{" "}
+                    <span className={address ? styles.value : styles.unavailable}>
+                        {address ? address : "Address Unavailable"}
+                    </span>
+                </p>
                 <h6>Contacts</h6>
                 <div className={styles.detailsContacts}>
-                    <p>Phone: {phone ? phone : "Phone Unavailable"}</p>
-                    <p>Website: {website ? website : "Website Unavailable"}</p>
+                    <p>
+                        <span className={styles.fieldLabel}>Phone:</span>{" "}
+                        <span className={phone ? styles.value : styles.unavailable}>
+                            {phone ? phone : "Phone Unavailable"}
+                        </span>
+                    </p>
+                    <p>
+                        <span className={styles.fieldLabel}>Website:</span>{" "}
+                        <span className={website ? styles.value : styles.unavailable}>
+                            {website ? website : "Website Unavailable"}
+                        </span>
+                    </p>
                 </div>
-                <p>Opening Hours: {openingHours ? openingHours : "Hours Unavailable"}</p>
+                <p>
+                    <span className={styles.fieldLabel}>Opening Hours:</span>{" "}
+                    <span className={openingHours ? styles.value : styles.unavailable}>
+                        {openingHours ? openingHours : "Hours Unavailable"}
+                    </span>
+                </p>
                 <h6>Categories</h6>
                 <div className={styles.detailsCaterories}>
                     {!category ? 
                         "Categories unavailable" :
-                        category.map(value => {
+                        category.map(value => 
                             <p className={styles.categoryItem}>{value}</p>
-                        })
+                        )
                     }
                 </div>
                 
@@ -49,21 +74,25 @@ export default function Item({name, address, category, website, phone, openingHo
                         <input 
                             type="number" 
                             name="people" 
-                            value={people} 
+                            value={groupSize} 
                             onChange={event => {
+                                setGroupSize(event.currentTarget.value);
                                 validateInput(event);
-                                if (event.currentTarget.checkValidity())
-                                    setPeople(event.currentTarget.value);
+                            }}
+                            onBlur={event => {
+                                if (!event.currentTarget.checkValidity())
+                                    setGroupSize(1);
+                                event.currentTarget.setCustomValidity("");
                             }}
                         />
                     </label>
                     <div className={styles.buttonGroup}>
-                        {(people > 1) && 
-                            <button onClick={() => setPeople(prev => prev-1)}>
+                        {(groupSize > 1) && 
+                            <button onClick={() => setGroupSize(prev => prev-1)}>
                                 -
                             </button>
                         }
-                        {<button onClick={() => setPeople(prev => prev+1)}>+</button>}   
+                        {<button onClick={() => setGroupSize(prev => prev+1)}>+</button>}   
                     </div>
                     <button className={styles.addButton}>Add to My Weekend</button>
                 </div>
