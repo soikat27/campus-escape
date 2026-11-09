@@ -89,6 +89,7 @@ export default function Category() {
                 </div>
                 <div className={styles.items}>
                     {data && data.map(item =>
+                        (item.properties.name &&
                         <Item
                             key={item.properties.place_id}
                             name={item.properties.name}
@@ -97,7 +98,7 @@ export default function Category() {
                             website={(item.properties.website) && item.properties.website}
                             phone={(item.properties.contact && item.properties.contact.phone) &&  item.properties.contact.phone}
                             openingHours={(item.properties.opening_hours) && item.properties.opening_hours}
-                        />
+                        />)
                     )}
                 </div>
             </div>
