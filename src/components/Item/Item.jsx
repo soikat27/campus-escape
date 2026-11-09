@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Item.module.css";
 import locationIcon from "../../assets/icon/location-icon.png";
 
-export default function Item({name, address, category, website, phone, openingHours}) {
+export default function Item({name, address, category, website, phone, openingHours, updatePlaceCount}) {
     const [groupSize, setGroupSize] = useState(1);
 
     function validateInput(event) {
@@ -98,7 +98,12 @@ export default function Item({name, address, category, website, phone, openingHo
                         }
                         {<button onClick={() => setGroupSize(prev => prev+1)}>+</button>}   
                     </div>
-                    <button className={styles.addButton}>Add to My Weekend</button>
+                    <button 
+                        className={styles.addButton}
+                        onClick={() => {updatePlaceCount(prev => prev+1)}}
+                    >
+                        Add to My Weekend
+                    </button>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useOutletContext, useParams } from "react-router";
 import Item from "../Item/Item.jsx";
 import styles from "./Category.module.css";
 
@@ -37,6 +37,7 @@ export default function Category() {
     const [imageUrl, setImageUrl] = useState("#");
 
     const {category} = useParams();
+    const setPlaceCount = useOutletContext();
 
     useEffect(() => {
         // effect:
@@ -103,6 +104,7 @@ export default function Category() {
                             website={(item.properties.website) && item.properties.website}
                             phone={(item.properties.contact && item.properties.contact.phone) &&  item.properties.contact.phone}
                             openingHours={(item.properties.opening_hours) && item.properties.opening_hours}
+                            updatePlaceCount={setPlaceCount}
                         />)
                     )}
                 </div>
