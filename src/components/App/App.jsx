@@ -1,6 +1,5 @@
 import {Link, Outlet} from 'react-router';
 import CartButton from "../CartButton/CartButton.jsx";
-import logo from "../../assets/logo/campus-escape-logo.png";
 import githubIcon from "../../assets/icon/github-icon.svg";
 import styles from './App.module.css';
 import { useState } from 'react';
@@ -15,7 +14,7 @@ export default function App() {
             <header>
                 <div className={styles.branding}>
                 <Link to="/" onClick={() => setCurrentPage(0)}>
-                    <img src={logo} alt="logo-campus-escape" />
+                    <img src="/campus-escape-logo.png" alt="logo-campus-escape" />
                 </Link>
                 <CartButton placeCount={placeCount} />
                 </div>
