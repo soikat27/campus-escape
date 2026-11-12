@@ -2,8 +2,9 @@ import { useState } from "react";
 import styles from "./Item.module.css";
 import locationIcon from "../../assets/icon/location-icon.png";
 
-export default function Item({name, address, category, website, phone, openingHours, updatePlaceCount}) {
+export default function Item({placeId, name, address, category, website, phone, openingHours, updatePlaceCount, updateMyWeekend}) {
     const [groupSize, setGroupSize] = useState(1);
+    const [isSelected, setIsSelected] = useState(false);
 
     function validateInput(event) {
         // 1. clear custom validity
@@ -17,6 +18,20 @@ export default function Item({name, address, category, website, phone, openingHo
 
         // 3. report validity
         input.reportValidity();
+    }
+
+    function addToMyWeekend() {
+        if (isSelected)
+            return;
+
+        // 1. update place counter
+        updatePlaceCount(prev => prev+1);
+
+        // 2. add to myWeekend list
+        updateMyWeekend(prev => [...prev, placeId]);
+
+        // 3. toggle setSelected to true
+        setIsSelected(true);
     }
     
     return (
@@ -98,12 +113,15 @@ export default function Item({name, address, category, website, phone, openingHo
                         }
                         {<button onClick={() => setGroupSize(prev => prev+1)}>+</button>}   
                     </div>
-                    <button 
-                        className={styles.addButton}
-                        onClick={() => {updatePlaceCount(prev => prev+1)}}
-                    >
-                        Add to My Weekend
-                    </button>
+                    <div className="buttonGroup">
+                        {isSelected && <span className={styles.check}>&#10003;</span>}
+                        <button 
+                            className={`${styles.addButton} ${isSelected && styles.selected}`}
+                            onClick={addToMyWeekend}
+                        >
+                            Add to My Weekend
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

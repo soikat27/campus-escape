@@ -37,7 +37,7 @@ export default function Category() {
     const [imageUrl, setImageUrl] = useState("#");
 
     const {category} = useParams();
-    const setPlaceCount = useOutletContext();
+    const {setPlaceCount, setMyWeekend} = useOutletContext();
 
     useEffect(() => {
         // effect:
@@ -98,6 +98,7 @@ export default function Category() {
                         (item.properties.name &&
                         <Item
                             key={item.properties.place_id}
+                            placeId={item.properties.place_id}
                             name={item.properties.name}
                             address={(item.properties.address_line2) && item.properties.address_line2}
                             category={(item.properties.categories) && item.properties.categories}
@@ -105,6 +106,7 @@ export default function Category() {
                             phone={(item.properties.contact && item.properties.contact.phone) &&  item.properties.contact.phone}
                             openingHours={(item.properties.opening_hours) && item.properties.opening_hours}
                             updatePlaceCount={setPlaceCount}
+                            updateMyWeekend={setMyWeekend}
                         />)
                     )}
                 </div>

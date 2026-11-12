@@ -6,8 +6,14 @@ import { useState } from 'react';
 
 export default function App() {
     const [placeCount, setPlaceCount] = useState(0);
-    // currentPage legend: 0 --> "/"; 1 --> "/museums"; 2 --> "/"; 3 --> "/shops"; 4 --> "/parks"
+    // currentPage legend: 
+    // 0 --> "/";
+    // 1 --> "/restaurants"
+    // 2 --> "/museums"
+    // 3 --> "/shops" 
+    // 4 --> "/parks"
     const [currentPage, setCurrentPage] = useState(0);
+    const [myWeekend, setMyWeekend] = useState([]);
 
     return (
         <div className={styles.layout}>
@@ -26,7 +32,7 @@ export default function App() {
                 </div>
             </header>
             <main className={styles.main}>
-                <Outlet context={setPlaceCount} />
+                <Outlet context={{setPlaceCount, setMyWeekend}} />
             </main>
             <footer className={styles.footer}>
                 <p>© 2026 Soikat Saha. All rights reserved.</p>
@@ -35,7 +41,6 @@ export default function App() {
                     Source Code
                 </a>
             </footer>
-
         </div>
     );
 }
