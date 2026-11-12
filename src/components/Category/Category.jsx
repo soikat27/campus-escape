@@ -37,7 +37,7 @@ export default function Category() {
     const [imageUrl, setImageUrl] = useState("#");
 
     const {category} = useParams();
-    const {setPlaceCount, setMyWeekend} = useOutletContext();
+    const {setPlaceCount, myWeekend, setMyWeekend} = useOutletContext();
 
     useEffect(() => {
         // effect:
@@ -105,6 +105,7 @@ export default function Category() {
                             website={(item.properties.website) && item.properties.website}
                             phone={(item.properties.contact && item.properties.contact.phone) &&  item.properties.contact.phone}
                             openingHours={(item.properties.opening_hours) && item.properties.opening_hours}
+                            isSelected={myWeekend.includes(item.properties.place_id)}
                             updatePlaceCount={setPlaceCount}
                             updateMyWeekend={setMyWeekend}
                         />)

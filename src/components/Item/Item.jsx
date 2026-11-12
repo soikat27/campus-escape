@@ -2,9 +2,8 @@ import { useState } from "react";
 import styles from "./Item.module.css";
 import locationIcon from "../../assets/icon/location-icon.png";
 
-export default function Item({placeId, name, address, category, website, phone, openingHours, updatePlaceCount, updateMyWeekend}) {
+export default function Item({placeId, name, address, category, website, phone, openingHours, isSelected, updatePlaceCount, updateMyWeekend}) {
     const [groupSize, setGroupSize] = useState(1);
-    const [isSelected, setIsSelected] = useState(false);
 
     function validateInput(event) {
         // 1. clear custom validity
@@ -29,9 +28,6 @@ export default function Item({placeId, name, address, category, website, phone, 
 
         // 2. add to myWeekend list
         updateMyWeekend(prev => [...prev, placeId]);
-
-        // 3. toggle setSelected to true
-        setIsSelected(true);
     }
     
     return (

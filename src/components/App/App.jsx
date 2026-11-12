@@ -32,7 +32,7 @@ export default function App() {
                 </div>
             </header>
             <main className={styles.main}>
-                <Outlet context={{setPlaceCount, setMyWeekend}} />
+                <Outlet context={{setPlaceCount, myWeekend, setMyWeekend}} />
             </main>
             <footer className={styles.footer}>
                 <p>© 2026 Soikat Saha. All rights reserved.</p>
