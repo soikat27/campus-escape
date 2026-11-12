@@ -127,19 +127,35 @@ describe("Add to My Weekend button behavior", () => {
     it("renders add place button and on click behaves correctly – invokes the function", async () => {
         // arrange
         const updatePlaceCount = vi.fn();
+        const updateMyWeekend = vi.fn();
         render(
             <Item 
                 name="demo-name"
                 updatePlaceCount={updatePlaceCount}
+                updateMyWeekend={updateMyWeekend}
             />
         );
         const user = userEvent.setup();
         const addPlaceBtn = screen.getByRole("button", {name: /add to my weekend/i});
+        expect(addPlaceBtn).toBeEnabled();
+        const checkBefore = screen.queryByText("✓");
+        expect(checkBefore).not.toBeInTheDocument();
 
-        // act
+        // act-1
         await user.click(addPlaceBtn);
 
         // assert
-        expect(updatePlaceCount).toHaveBeenCalled();
+        expect(addPlaceBtn).toBeDisabled();
+        const checkAfter = screen.getByText("✓");
+        expect(checkAfter).toBeInTheDocument();
+        expect(updatePlaceCount).toHaveBeenCalledTimes(1);
+        expect(updateMyWeekend).toHaveBeenCalledTimes(1);
+
+        // act-2
+        await user.click(addPlaceBtn);
+
+        // assert
+        expect(updatePlaceCount).not.toHaveBeenCalledTimes(2);
+        expect(updateMyWeekend).not.toHaveBeenCalledTimes(2);
     });
 });

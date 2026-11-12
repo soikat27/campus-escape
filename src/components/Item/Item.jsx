@@ -113,11 +113,12 @@ export default function Item({placeId, name, address, category, website, phone, 
                         }
                         {<button onClick={() => setGroupSize(prev => prev+1)}>+</button>}   
                     </div>
-                    <div className="buttonGroup">
+                    <div className={styles.addGroup}>
                         {isSelected && <span className={styles.check}>&#10003;</span>}
                         <button 
                             className={`${styles.addButton} ${isSelected && styles.selected}`}
                             onClick={addToMyWeekend}
+                            disabled={isSelected}
                         >
                             Add to My Weekend
                         </button>

@@ -197,12 +197,29 @@
   color: var(--color-white);
 }
 
+.addGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-orange);
+  font-size: 1.35rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
 .addButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-left: auto;
   padding: 0.55rem 0.85rem;
   border: 0;
   border-radius: 3px;
@@ -215,11 +232,19 @@
   text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
 }
 
-.addButton:hover {
+.addButton:hover:not(:disabled) {
   background-color: var(--color-orange);
+}
+
+.addButton.selected,
+.addButton:disabled {
+  background-color: color-mix(in srgb, var(--color-blue) 55%, var(--color-cream));
+  color: color-mix(in srgb, var(--color-white) 90%, transparent);
+  opacity: 0.85;
+  cursor: not-allowed;
 }
 
 @media (max-width: 600px) {
@@ -233,8 +258,12 @@
     flex-wrap: wrap;
   }
 
-  .addButton {
+  .addGroup {
     margin-left: 0;
+    width: 100%;
+  }
+
+  .addButton {
     width: 100%;
   }
 }

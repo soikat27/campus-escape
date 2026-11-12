@@ -1,4 +1,4 @@
-import { MemoryRouter, Routes, Route } from "react-router";
+import { MemoryRouter, Routes, Route, Outlet } from "react-router";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import Category from "./Category.jsx";
 import { render, screen } from "@testing-library/react";
@@ -29,7 +29,9 @@ describe(":Category compenent heading section", () => {
             render(
                 <MemoryRouter initialEntries={[path]}>
                     <Routes>
-                        <Route path="/:category" element={<Category />} />
+                        <Route element={<Outlet context={{setPlaceCount: vi.fn(), setMyWeekend: vi.fn()}} />}>
+                            <Route path="/:category" element={<Category />} />
+                        </Route>
                     </Routes>
                 </MemoryRouter>
             );
@@ -86,7 +88,9 @@ describe("main section", () => {
         render(
             <MemoryRouter initialEntries={["/museums"]}>
                 <Routes>
-                    <Route path={"/:category"} element={<Category />} />
+                    <Route element={<Outlet context={{setPlaceCount: vi.fn(), setMyWeekend: vi.fn()}} />}>
+                        <Route path="/:category" element={<Category />} />
+                    </Route>
                 </Routes>
             </MemoryRouter>
         );
@@ -120,7 +124,9 @@ describe("Loading state", () => {
         render(
             <MemoryRouter initialEntries={["/restaurants"]}>
                 <Routes>
-                    <Route path={"/:category"} element={<Category />}/>
+                    <Route element={<Outlet context={{setPlaceCount: vi.fn(), setMyWeekend: vi.fn()}} />}>
+                        <Route path="/:category" element={<Category />} />
+                    </Route>
                 </Routes>
             </MemoryRouter>
         );
@@ -147,7 +153,9 @@ describe("Error state", () => {
         render(
             <MemoryRouter initialEntries={["/restaurants"]}>
                 <Routes>
-                    <Route path={"/:category"} element={<Category />}/>
+                    <Route element={<Outlet context={{setPlaceCount: vi.fn(), setMyWeekend: vi.fn()}} />}>
+                        <Route path="/:category" element={<Category />} />
+                    </Route>
                 </Routes>
             </MemoryRouter>
         );
