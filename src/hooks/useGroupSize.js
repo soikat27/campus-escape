@@ -17,5 +17,11 @@ export default function useGroupSize(groupSize) {
         input.reportValidity();
     }
 
-    return {draftGroupSize, setDraftGroupSize, validateGroupSize};
+    function resetIfInvalid(event, deafultSize) {
+        if (!event.currentTarget.checkValidity())
+            setDraftGroupSize(deafultSize);
+        event.currentTarget.setCustomValidity("");
+    }
+
+    return {draftGroupSize, setDraftGroupSize, validateGroupSize, resetIfInvalid};
 }

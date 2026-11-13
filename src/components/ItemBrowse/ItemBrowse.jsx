@@ -3,7 +3,7 @@ import PlaceInfo from "../PlaceInfo/PlaceInfo.jsx";
 import useGroupSize from "../../hooks/useGroupSize";
 
 export default function ItemBrowse({placeId, name, address, category, website, phone, openingHours, isSelected, groupSize, updateMyWeekend}) {
-    const {draftGroupSize, setDraftGroupSize, validateGroupSize} = useGroupSize(groupSize);
+    const {draftGroupSize, setDraftGroupSize, validateGroupSize, resetIfInvalid} = useGroupSize(groupSize);
 
     function addToMyWeekend() {
         if (isSelected)
@@ -53,26 +53,24 @@ export default function ItemBrowse({placeId, name, address, category, website, p
                                         validateGroupSize(event);
                                     }}
                                     onBlur={event => {
-                                        if (!event.currentTarget.checkValidity())
-                                            setDraftGroupSize(1);
-                                        event.currentTarget.setCustomValidity("");
+                                        resetIfInvalid(event, 1);
                                     }}
                                 />
                             </label>
                             <div className={styles.buttonGroup}>
                                 {(draftGroupSize > 1) && 
-                                    <button onClick={() => setDraftGroupSize(prev => prev-1)}>
+                                    <button onClick={() => setDraftGroupSize(prev => Number(prev)-1)}>
                                         -
                                     </button>
                                 }
-                                {<button onClick={() => setDraftGroupSize(prev => prev+1)}>+</button>}   
+                                {<button onClick={() => setDraftGroupSize(prev => Number(prev)+1)}>+</button>}   
                             </div>
                         </div>
                     }
                     <div className={styles.addGroup}>
                         {isSelected && <span className={styles.check}>&#10003;</span>}
                         <button 
-                            className={`${styles.addButton} ${isSelected && styles.selected}`}
+                            className={`${styles.addButton} ${isSelected ? styles.selected : ""}`}
                             onClick={addToMyWeekend}
                             disabled={isSelected}
                         >

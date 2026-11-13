@@ -1,0 +1,23 @@
+.item {
+  composes: item from "../ItemBrowse/ItemBrowse.module.css";
+}
+
+.people {
+  composes: people from "../ItemBrowse/ItemBrowse.module.css";
+}
+
+.browseView {
+  composes: browseView from "../ItemBrowse/ItemBrowse.module.css";
+}
+
+.buttonGroup {
+  composes: buttonGroup from "../ItemBrowse/ItemBrowse.module.css";
+}
+
+.removeGroup {
+  composes: addGroup from "../ItemBrowse/ItemBrowse.module.css";
+}
+
+.removeButton {
+  composes: addButton from "../ItemBrowse/ItemBrowse.module.css";
+}
