@@ -74,6 +74,20 @@ export default function Category() {
         }
 
     }, [category]);
+
+    function isSelected(placeId) {
+        return myWeekend.some(place => (
+            place.placeId === placeId
+        ));
+    }
+
+    function getGroupSize(placeId) {
+        if (isSelected(placeId)) {
+            const place = myWeekend.find(place => place.placeId === placeId);
+            return place.groupSize;
+        }
+        return 1;
+    }
     
     if (loading === true)
         return <div className={styles.status}>Loading...</div>
@@ -105,7 +119,8 @@ export default function Category() {
                             website={(item.properties.website) && item.properties.website}
                             phone={(item.properties.contact && item.properties.contact.phone) &&  item.properties.contact.phone}
                             openingHours={(item.properties.opening_hours) && item.properties.opening_hours}
-                            isSelected={myWeekend.includes(item.properties.place_id)}
+                            isSelected={isSelected(item.properties.place_id)}
+                            groupSize={getGroupSize(item.properties.place_id)}
                             updateMyWeekend={setMyWeekend}
                         />)
                     )}

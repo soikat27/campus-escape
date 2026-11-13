@@ -141,6 +141,27 @@
   border-top: 1px solid var(--color-cream);
 }
 
+.browseView {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+  flex-wrap: wrap;
+}
+
+.cartView {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-blue);
+}
+
+.cartSize {
+  color: var(--color-blue);
+  font-weight: var(--font-weight-bold);
+}
+
 .people label {
   display: inline-flex;
   align-items: center;

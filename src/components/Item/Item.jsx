@@ -2,8 +2,8 @@ import { useState } from "react";
 import styles from "./Item.module.css";
 import locationIcon from "../../assets/icon/location-icon.png";
 
-export default function Item({placeId, name, address, category, website, phone, openingHours, isSelected, updateMyWeekend}) {
-    const [groupSize, setGroupSize] = useState(1);
+export default function Item({placeId, name, address, category, website, phone, openingHours, isSelected, groupSize, updateMyWeekend}) {
+    const [draftGroupSize, setDraftGroupSize] = useState(groupSize);
 
     function validateInput(event) {
         // 1. clear custom validity
@@ -24,7 +24,19 @@ export default function Item({placeId, name, address, category, website, phone, 
             return;
 
         // 1. add to myWeekend list
-        updateMyWeekend(prev => [...prev, placeId]);
+        const newPlace = {
+            placeId: placeId,
+            name: name,
+            address: address,
+            category: category,
+            website: website,
+            phone: phone,
+            openingHours: openingHours,
+            groupSize: Number(draftGroupSize)
+        };
+        updateMyWeekend(prev => (
+            [...prev, newPlace]
+        ));
     }
     
     return (
@@ -81,31 +93,39 @@ export default function Item({placeId, name, address, category, website, phone, 
                 </div>
                 
                 <div className={styles.people}>
-                    <label>
-                        Group Size: 
-                        <input 
-                            type="number" 
-                            name="people" 
-                            value={groupSize} 
-                            onChange={event => {
-                                setGroupSize(event.currentTarget.value);
-                                validateInput(event);
-                            }}
-                            onBlur={event => {
-                                if (!event.currentTarget.checkValidity())
-                                    setGroupSize(1);
-                                event.currentTarget.setCustomValidity("");
-                            }}
-                        />
-                    </label>
-                    <div className={styles.buttonGroup}>
-                        {(groupSize > 1) && 
-                            <button onClick={() => setGroupSize(prev => prev-1)}>
-                                -
-                            </button>
-                        }
-                        {<button onClick={() => setGroupSize(prev => prev+1)}>+</button>}   
-                    </div>
+                    {(isSelected) ?
+                        <div className={styles.cartView}>
+                            Group Size: <span className={styles.cartSize}>{draftGroupSize}</span>
+                        </div>
+                            :
+                        <div className={styles.browseView}>
+                            <label>
+                                Group Size: 
+                                <input 
+                                    type="number" 
+                                    name="people" 
+                                    value={draftGroupSize}
+                                    onChange={event => {
+                                        setDraftGroupSize(event.currentTarget.value);
+                                        validateInput(event);
+                                    }}
+                                    onBlur={event => {
+                                        if (!event.currentTarget.checkValidity())
+                                            setDraftGroupSize(1);
+                                        event.currentTarget.setCustomValidity("");
+                                    }}
+                                />
+                            </label>
+                            <div className={styles.buttonGroup}>
+                                {(draftGroupSize > 1) && 
+                                    <button onClick={() => setDraftGroupSize(prev => prev-1)}>
+                                        -
+                                    </button>
+                                }
+                                {<button onClick={() => setDraftGroupSize(prev => prev+1)}>+</button>}   
+                            </div>
+                        </div>
+                    }
                     <div className={styles.addGroup}>
                         {isSelected && <span className={styles.check}>&#10003;</span>}
                         <button 
