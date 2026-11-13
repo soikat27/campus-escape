@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Item.module.css";
 import locationIcon from "../../assets/icon/location-icon.png";
 
-export default function Item({placeId, name, address, category, website, phone, openingHours, isSelected, updatePlaceCount, updateMyWeekend}) {
+export default function Item({placeId, name, address, category, website, phone, openingHours, isSelected, updateMyWeekend}) {
     const [groupSize, setGroupSize] = useState(1);
 
     function validateInput(event) {
@@ -23,10 +23,7 @@ export default function Item({placeId, name, address, category, website, phone, 
         if (isSelected)
             return;
 
-        // 1. update place counter
-        updatePlaceCount(prev => prev+1);
-
-        // 2. add to myWeekend list
+        // 1. add to myWeekend list
         updateMyWeekend(prev => [...prev, placeId]);
     }
     

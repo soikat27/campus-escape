@@ -294,6 +294,7 @@
   padding: 3.5rem 1.25rem 4rem;
   background-color: var(--color-blue);
   color: var(--color-white);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-white) 22%, transparent);
 }
 
 .missionInner {

@@ -5,7 +5,6 @@ import styles from './App.module.css';
 import { useState } from 'react';
 
 export default function App() {
-    const [placeCount, setPlaceCount] = useState(0);
     const [myWeekend, setMyWeekend] = useState([]);
 
     const {pathname} = useLocation();
@@ -17,7 +16,7 @@ export default function App() {
                 <Link to="/" >
                     <img src="/campus-escape-logo.png" alt="logo-campus-escape" />
                 </Link>
-                <CartButton placeCount={placeCount} />
+                <CartButton placeCount={myWeekend.length} />
                 </div>
                 <div className={styles.navBar}>
                     <Link className={(pathname === "/restaurants") && styles.selectedPage} to="/restaurants">Restaurant</Link>
@@ -27,7 +26,7 @@ export default function App() {
                 </div>
             </header>
             <main className={styles.main}>
-                <Outlet context={{setPlaceCount, myWeekend, setMyWeekend}} />
+                <Outlet context={{myWeekend, setMyWeekend}} />
             </main>
             <footer className={styles.footer}>
                 <p>© 2026 Soikat Saha. All rights reserved.</p>
