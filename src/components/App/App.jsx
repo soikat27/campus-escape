@@ -18,10 +18,10 @@ export default function App() {
                 <CartButton placeCount={myWeekend.length} />
                 </div>
                 <div className={styles.navBar}>
-                    <Link className={(pathname === "/restaurants") && styles.selectedPage} to="/restaurants">Restaurant</Link>
-                    <Link className={(pathname === "/museums") && styles.selectedPage} to="/museums">Museum & Cinema</Link>
-                    <Link className={(pathname === "/shops") && styles.selectedPage} to="/shops">Gift & Souvenir Shop</Link>
-                    <Link className={(pathname === "/parks") && styles.selectedPage} to="/parks">Park & Playground</Link>
+                    <Link className={(pathname === "/restaurants") ? styles.selectedPage : ""} to="/restaurants">Restaurant</Link>
+                    <Link className={(pathname === "/museums") ? styles.selectedPage : ""} to="/museums">Museum & Cinema</Link>
+                    <Link className={(pathname === "/shops") ? styles.selectedPage : ""} to="/shops">Gift & Souvenir Shop</Link>
+                    <Link className={(pathname === "/parks") ? styles.selectedPage : ""} to="/parks">Park & Playground</Link>
                 </div>
             </header>
             <main className={styles.main}>

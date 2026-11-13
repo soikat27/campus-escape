@@ -1,11 +1,11 @@
-import { useOutletContext } from "react-router";
 import ItemBrowse from "../ItemBrowse/ItemBrowse.jsx";
 import styles from "./Category.module.css";
 import useCategoryFetch from "../../hooks/useCategoryFetch.js";
+import useMyWeekendContext from "../../hooks/useMyWeekendContext.js";
 
 export default function Category() {
     const {categories, category, data, error, loading, imageUrl} = useCategoryFetch();
-    const {myWeekend, setMyWeekend} = useOutletContext();
+    const {myWeekend, setMyWeekend} = useMyWeekendContext();
 
     function isSelected(placeId) {
         return myWeekend.some(place => (

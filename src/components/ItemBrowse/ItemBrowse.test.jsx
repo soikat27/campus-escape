@@ -10,7 +10,7 @@ describe("Place details", () => {
             <ItemBrowse
                 name="demo-name"
                 address="demo-address"
-                category={["demo-category-1", "demo-category-1"]}
+                category={["demo-category-1", "demo-category-2"]}
                 website="www.github.com/soikat27"
                 phone="+1 000 111 2222"
                 openingHours="demo-hours"

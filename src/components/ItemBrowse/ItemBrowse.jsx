@@ -73,7 +73,7 @@ export default function ItemBrowse({placeId, name, address, category, website, p
                     {!category ? 
                         "Categories unavailable" :
                         category.map(value => 
-                            <p className={styles.categoryItem}>{value}</p>
+                            <p key={value} className={styles.categoryItem}>{value}</p>
                         )
                     }
                 </div>
