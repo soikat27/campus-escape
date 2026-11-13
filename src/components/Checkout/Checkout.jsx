@@ -1,7 +1,40 @@
+import useMyWeekendContext from "../../hooks/useMyWeekendContext";
+import ItemCart from "../ItemCart/ItemCart.jsx";
+
 export default function Checkout() {
+    const {myWeekend, setMyWeekend} = useMyWeekendContext();
+
+    if (myWeekend.length === 0) {
+        return (
+            <div className={styles.empty}>
+                <p>
+                    Your weekend plan looks empty! 
+                    You can always browse your favourite category and add places you would like to explore.
+                </p>
+            </div>
+        );
+    }
     return (
         <div>
-            
+            <h6>Your Weekend plan</h6>
+            <div className={styles.places}>
+                {
+                    myWeekend.map(place => 
+                        <ItemCart
+                            key={place.placeId}
+                            placeId={place.placeId}
+                            name={place.name}
+                            address={place.address}
+                            category={place.category}
+                            website={place.website}
+                            phone={place.phone}
+                            openingHours={place.openingHours}
+                            groupSize={place.groupSize}
+                            updateMyWeekend={setMyWeekend}
+                        />
+                    )
+                }
+            </div>
         </div>
     );
 }
