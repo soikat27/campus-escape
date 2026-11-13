@@ -1,4 +1,4 @@
-import {Link, Outlet} from 'react-router';
+import {Link, Outlet, useLocation} from 'react-router';
 import CartButton from "../CartButton/CartButton.jsx";
 import githubIcon from "../../assets/icon/github-icon.svg";
 import styles from './App.module.css';
@@ -6,29 +6,24 @@ import { useState } from 'react';
 
 export default function App() {
     const [placeCount, setPlaceCount] = useState(0);
-    // currentPage legend: 
-    // 0 --> "/";
-    // 1 --> "/restaurants"
-    // 2 --> "/museums"
-    // 3 --> "/shops" 
-    // 4 --> "/parks"
-    const [currentPage, setCurrentPage] = useState(0);
     const [myWeekend, setMyWeekend] = useState([]);
+
+    const {pathname} = useLocation();
 
     return (
         <div className={styles.layout}>
             <header>
                 <div className={styles.branding}>
-                <Link to="/" onClick={() => setCurrentPage(0)}>
+                <Link to="/" >
                     <img src="/campus-escape-logo.png" alt="logo-campus-escape" />
                 </Link>
                 <CartButton placeCount={placeCount} />
                 </div>
                 <div className={styles.navBar}>
-                    <Link className={(currentPage === 1) && styles.selectedPage} to="/restaurants" onClick={() => setCurrentPage(1)}>Restaurant</Link>
-                    <Link className={(currentPage === 2) && styles.selectedPage} to="/museums" onClick={() => setCurrentPage(2)}>Museum & Cinema</Link>
-                    <Link className={(currentPage === 3) && styles.selectedPage} to="/shops" onClick={() => setCurrentPage(3)}>Gift & Souvenir Shop</Link>
-                    <Link className={(currentPage === 4) && styles.selectedPage} to="/parks" onClick={() => setCurrentPage(4)}>Park & Playground</Link>
+                    <Link className={(pathname === "/restaurants") && styles.selectedPage} to="/restaurants">Restaurant</Link>
+                    <Link className={(pathname === "/museums") && styles.selectedPage} to="/museums">Museum & Cinema</Link>
+                    <Link className={(pathname === "/shops") && styles.selectedPage} to="/shops">Gift & Souvenir Shop</Link>
+                    <Link className={(pathname === "/parks") && styles.selectedPage} to="/parks">Park & Playground</Link>
                 </div>
             </header>
             <main className={styles.main}>
