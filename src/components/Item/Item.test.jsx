@@ -73,7 +73,7 @@ describe("group size behavior", () => {
     it("renders group size input, buttons appear and behave as expected", async () => {
         // arrange
         render(
-            <Item name="demo-name" />
+            <Item name="demo-name" groupSize={1} />
         );
         
         const groupSizeInput = screen.getByRole("spinbutton", {name: /group size/i});
