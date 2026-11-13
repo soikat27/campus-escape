@@ -126,13 +126,11 @@ describe("group size behavior", () => {
 describe("Add to My Weekend button behavior", () => {
     it("renders add place button WITHOUT selected and click behaves correctly – invokes the function", async () => {
         // arrange
-        const updatePlaceCount = vi.fn();
         const updateMyWeekend = vi.fn();
         render(
             <Item 
                 name="demo-name"
                 isSelected={false}
-                updatePlaceCount={updatePlaceCount}
                 updateMyWeekend={updateMyWeekend}
             />
         );
@@ -146,19 +144,16 @@ describe("Add to My Weekend button behavior", () => {
         await user.click(addPlaceBtn);
 
         // assert
-        expect(updatePlaceCount).toHaveBeenCalled();
         expect(updateMyWeekend).toHaveBeenCalled();
     });
 
     it("renders add place button WITH selected and click behaves correctly – doesn't invoke the function", async () => {
         // arrange
-        const updatePlaceCount = vi.fn();
         const updateMyWeekend = vi.fn();
         render(
             <Item 
                 name="demo-name"
                 isSelected={true}
-                updatePlaceCount={updatePlaceCount}
                 updateMyWeekend={updateMyWeekend}
             />
         );
@@ -172,7 +167,6 @@ describe("Add to My Weekend button behavior", () => {
         await user.click(addPlaceBtn);
 
         // assert
-        expect(updatePlaceCount).not.toHaveBeenCalled();
         expect(updateMyWeekend).not.toHaveBeenCalled();
     });
 });
