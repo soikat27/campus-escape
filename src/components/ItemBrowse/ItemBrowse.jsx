@@ -1,23 +1,9 @@
-import { useState } from "react";
 import styles from "./ItemBrowse.module.css";
 import locationIcon from "../../assets/icon/location-icon.png";
+import useGroupSize from "../../hooks/useGroupSize";
 
 export default function ItemBrowse({placeId, name, address, category, website, phone, openingHours, isSelected, groupSize, updateMyWeekend}) {
-    const [draftGroupSize, setDraftGroupSize] = useState(groupSize);
-
-    function validateInput(event) {
-        // 1. clear custom validity
-        const input = event.currentTarget;
-        input.setCustomValidity("");
-
-        // 2. enforce new validity rules
-        const value = Number(input.value);
-        if (!value || value < 1)
-            input.setCustomValidity("Please enter a valid group. Group size must be a number greater than 0");
-
-        // 3. report validity
-        input.reportValidity();
-    }
+    const {draftGroupSize, setDraftGroupSize, validateGroupSize} = useGroupSize(groupSize);
 
     function addToMyWeekend() {
         if (isSelected)
@@ -107,7 +93,7 @@ export default function ItemBrowse({placeId, name, address, category, website, p
                                     value={draftGroupSize}
                                     onChange={event => {
                                         setDraftGroupSize(event.currentTarget.value);
-                                        validateInput(event);
+                                        validateGroupSize(event);
                                     }}
                                     onBlur={event => {
                                         if (!event.currentTarget.checkValidity())
