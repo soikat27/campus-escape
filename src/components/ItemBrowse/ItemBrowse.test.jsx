@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Item from "./Item.jsx";
+import ItemBrowse from "./ItemBrowse.jsx";
 import userEvent from "@testing-library/user-event";
 
 describe("Place details", () => {
     it("renders place details when available", () => {
         // arrange
         render(
-            <Item
+            <ItemBrowse
                 name="demo-name"
                 address="demo-address"
                 category={["demo-category-1", "demo-category-1"]}
@@ -33,7 +33,7 @@ describe("Place details", () => {
     it("renders place details when unavailable", () => {
         // arrange
         render(
-            <Item name="demo-name" />
+            <ItemBrowse name="demo-name" />
         );
         const name = screen.getByRole("heading", {level: 4});
         const address = screen.queryByText(/demo-address/i);
@@ -52,7 +52,7 @@ describe("website behaves correctly", () => {
     it("renders with corrent website address", () => {
         // arrange
         render(
-            <Item 
+            <ItemBrowse 
                 name="demo-name"
                 website="http://www.github.com/soikat27"
             />
@@ -73,7 +73,7 @@ describe("group size behavior", () => {
     it("renders group size input, buttons appear and behave as expected", async () => {
         // arrange
         render(
-            <Item name="demo-name" groupSize={1} />
+            <ItemBrowse name="demo-name" groupSize={1} />
         );
         
         const groupSizeInput = screen.getByRole("spinbutton", {name: /group size/i});
@@ -128,7 +128,7 @@ describe("Add to My Weekend button behavior", () => {
         // arrange
         const updateMyWeekend = vi.fn();
         render(
-            <Item 
+            <ItemBrowse 
                 name="demo-name"
                 isSelected={false}
                 updateMyWeekend={updateMyWeekend}
@@ -151,7 +151,7 @@ describe("Add to My Weekend button behavior", () => {
         // arrange
         const updateMyWeekend = vi.fn();
         render(
-            <Item 
+            <ItemBrowse 
                 name="demo-name"
                 isSelected={true}
                 updateMyWeekend={updateMyWeekend}

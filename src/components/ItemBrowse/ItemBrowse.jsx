@@ -1,8 +1,8 @@
 import { useState } from "react";
-import styles from "./Item.module.css";
+import styles from "./ItemBrowse.module.css";
 import locationIcon from "../../assets/icon/location-icon.png";
 
-export default function Item({placeId, name, address, category, website, phone, openingHours, isSelected, groupSize, updateMyWeekend}) {
+export default function ItemBrowse({placeId, name, address, category, website, phone, openingHours, isSelected, groupSize, updateMyWeekend}) {
     const [draftGroupSize, setDraftGroupSize] = useState(groupSize);
 
     function validateInput(event) {

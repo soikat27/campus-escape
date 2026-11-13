@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 export default function App() {
     const [myWeekend, setMyWeekend] = useState([]);
-
     const {pathname} = useLocation();
 
     return (
