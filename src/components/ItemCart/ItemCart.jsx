@@ -1,11 +1,12 @@
 import styles from "./ItemCart.module.css";
 import PlaceInfo from "../PlaceInfo/PlaceInfo.jsx";
 import useGroupSize from "../../hooks/useGroupSize.js";
+import trashIcon from "../../assets/icon/trash-icon.png"
 
 export default function ItemCart({placeId, name, address, category, website, phone, openingHours, groupSize, updateMyWeekend}) {
     const {draftGroupSize, setDraftGroupSize, validateGroupSize, resetIfInvalid} = useGroupSize();
 
-    function updateGroupSize(event) {
+    function updateGroupSize() {
         resetIfInvalid(groupSize);
         
         updateMyWeekend(prev => 
@@ -71,9 +72,7 @@ export default function ItemCart({placeId, name, address, category, website, pho
                                     setDraftGroupSize(event.target.value);
                                     validateGroupSize(event);
                                 }}
-                                onBlur={event => {
-                                    updateGroupSize(event)
-                                }}
+                                onBlur={() => updateGroupSize()}
                             />
                         </label>
                         <div className={styles.buttonGroup}>
@@ -92,6 +91,7 @@ export default function ItemCart({placeId, name, address, category, website, pho
                             onClick={removeFromMyWeekend}
                         >
                             Remove from My Weekend
+                            <img className={styles.trashIcon} src={trashIcon} alt="delete-icon" />
                         </button>
                     </div>
                 </div>

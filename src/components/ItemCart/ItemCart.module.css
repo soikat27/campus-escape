@@ -20,4 +20,33 @@
 
 .removeButton {
   composes: addButton from "../ItemBrowse/ItemBrowse.module.css";
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.trashIcon {
+  display: block;
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 3px color-mix(in srgb, #e94550 50%, transparent));
+  transition: filter 0.15s ease;
+}
+
+.removeButton:hover .trashIcon {
+  filter: drop-shadow(0 0 5px color-mix(in srgb, #e94550 70%, transparent));
+}
+
+@media (max-width: 600px) {
+  .removeGroup {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .removeButton {
+    width: 100%;
+  }
 }

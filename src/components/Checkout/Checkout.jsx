@@ -1,5 +1,6 @@
 import useMyWeekendContext from "../../hooks/useMyWeekendContext";
 import ItemCart from "../ItemCart/ItemCart.jsx";
+import styles from "./Checkout.module.css";
 
 export default function Checkout() {
     const {myWeekend, setMyWeekend} = useMyWeekendContext();
@@ -15,7 +16,7 @@ export default function Checkout() {
         );
     }
     return (
-        <div>
+        <div className={styles.checkout}>
             <h6>Your Weekend plan</h6>
             <div className={styles.places}>
                 {
