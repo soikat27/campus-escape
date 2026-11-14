@@ -83,20 +83,13 @@ export default function ItemCart({placeId, name, address, category, website, pho
                             />
                         </label>
                         <div className={styles.buttonGroup}>
-                            {(draftGroupSize > 1) && 
-                                <button onClick={decrementSize}>
-                                    -
-                                </button>
-                            }
+                            {(Number(draftGroupSize) > 1) && <button onClick={decrementSize}>-</button>}
                             {<button onClick={incrementSize}>+</button>}   
                         </div>
                     </div>
 
                     <div className={styles.removeGroup}>
-                        <button 
-                            className={styles.removeButton}
-                            onClick={removeFromMyWeekend}
-                        >
+                        <button className={styles.removeButton} onClick={removeFromMyWeekend}>
                             Remove from My Weekend
                             <img className={styles.trashIcon} src={trashIcon} alt="delete-icon" />
                         </button>
