@@ -4,7 +4,8 @@
   color: var(--color-blue);
 }
 
-.checkout h6 {
+/* only the page title — not PlaceInfo section h6s inside cards */
+.checkout > h6 {
   margin: 0;
   padding: 1.75rem 2rem 0.35rem;
   font-size: 0.65rem;
@@ -16,21 +17,35 @@
 
 .empty {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1.5rem;
-  background-color: var(--color-cream-light);
+  gap: 0.55rem;
+  min-height: min(52vh, 28rem);
+  padding: 3.5rem 1.25rem;
   box-sizing: border-box;
 }
 
-.empty p {
+.emptyTitle {
+  margin: 0;
+  max-width: 32rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--color-blue) 88%, var(--color-cream-light));
+}
+
+.emptySubtitle {
   margin: 0;
   max-width: 28rem;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.55;
   font-weight: var(--font-weight-regular);
-  color: var(--color-blue);
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--color-blue) 62%, var(--color-cream-light));
 }
 
 .places {
@@ -45,7 +60,7 @@
 }
 
 @media (max-width: 900px) {
-  .checkout h6 {
+  .checkout > h6 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
@@ -57,7 +72,7 @@
 }
 
 @media (max-width: 600px) {
-  .checkout h6 {
+  .checkout > h6 {
     padding-left: 1rem;
     padding-right: 1rem;
   }

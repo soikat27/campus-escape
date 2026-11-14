@@ -8,8 +8,8 @@ export default function Checkout() {
     if (myWeekend.length === 0) {
         return (
             <div className={styles.empty}>
-                <p>
-                    Your weekend plan looks empty! 
+                <p className={styles.emptyTitle}>Your weekend plan looks empty!</p>
+                <p className={styles.emptySubtitle}>
                     You can always browse your favourite category and add places you would like to explore.
                 </p>
             </div>

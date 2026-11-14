@@ -19,7 +19,7 @@ export default function useGroupSize(groupSize) {
 
     function resetIfInvalid(event, deafultSize) {
         if (!event.currentTarget.checkValidity())
-            setDraftGroupSize(deafultSize);
+            setDraftGroupSize(Number(deafultSize));
         event.currentTarget.setCustomValidity("");
     }
 

@@ -4,39 +4,46 @@ import useGroupSize from "../../hooks/useGroupSize.js";
 import trashIcon from "../../assets/icon/trash-icon.png"
 
 export default function ItemCart({placeId, name, address, category, website, phone, openingHours, groupSize, updateMyWeekend}) {
-    const {draftGroupSize, setDraftGroupSize, validateGroupSize, resetIfInvalid} = useGroupSize();
+    const {draftGroupSize, setDraftGroupSize, validateGroupSize} = useGroupSize(groupSize);
 
-    function updateGroupSize() {
-        resetIfInvalid(groupSize);
-        
+    function updateGroupSize(event) {
+        let nextSize;
+        if (event.target.checkValidity())
+            nextSize = Number(draftGroupSize);
+        else
+            nextSize = groupSize;
+
+        event.target.setCustomValidity("");
+
+        setDraftGroupSize(nextSize)
         updateMyWeekend(prev => 
             prev.map(place => 
                 (place.placeId === placeId)
-                    ? {...place, groupSize: draftGroupSize}
+                    ? {...place, groupSize: nextSize}
                     : place
             )
         );
     }
 
     function decrementSize() {
-        setDraftGroupSize(prev => Number(prev)+1);
-
-        updateMyWeekend(prev => 
-            prev.map(place => 
-                (place.placeId === placeId)
-                    ? {...place, groupSize: place.groupSize+1}
-                    : place
-            )
-        );
-    }
-
-    function incrementSize() {
         setDraftGroupSize(prev => Number(prev)-1);
 
         updateMyWeekend(prev => 
             prev.map(place => 
                 (place.placeId === placeId)
                     ? {...place, groupSize: place.groupSize-1}
+                    : place
+            )
+        );
+    }
+
+    function incrementSize() {
+        setDraftGroupSize(prev => Number(prev)+1);
+
+        updateMyWeekend(prev => 
+            prev.map(place => 
+                (place.placeId === placeId)
+                    ? {...place, groupSize: place.groupSize+1}
                     : place
             )
         );
@@ -72,11 +79,11 @@ export default function ItemCart({placeId, name, address, category, website, pho
                                     setDraftGroupSize(event.target.value);
                                     validateGroupSize(event);
                                 }}
-                                onBlur={() => updateGroupSize()}
+                                onBlur={updateGroupSize}
                             />
                         </label>
                         <div className={styles.buttonGroup}>
-                            {(groupSize > 1) && 
+                            {(draftGroupSize > 1) && 
                                 <button onClick={decrementSize}>
                                     -
                                 </button>
