@@ -29,7 +29,7 @@ describe(":Category compenent heading section", () => {
             render(
                 <MemoryRouter initialEntries={[path]}>
                     <Routes>
-                        <Route element={<Outlet context={{setPlaceCount: vi.fn(), setMyWeekend: vi.fn()}} />}>
+                        <Route element={<Outlet context={{myWeekend: [], setMyWeekend: vi.fn()}} />}>
                             <Route path="/:category" element={<Category />} />
                         </Route>
                     </Routes>
@@ -88,7 +88,7 @@ describe("main section", () => {
         render(
             <MemoryRouter initialEntries={["/museums"]}>
                 <Routes>
-                    <Route element={<Outlet context={{setPlaceCount: vi.fn(), myWeekend: [], setMyWeekend: vi.fn()}} />}>
+                    <Route element={<Outlet context={{myWeekend: [], setMyWeekend: vi.fn()}} />}>
                         <Route path="/:category" element={<Category />} />
                     </Route>
                 </Routes>
@@ -124,7 +124,7 @@ describe("Loading state", () => {
         render(
             <MemoryRouter initialEntries={["/restaurants"]}>
                 <Routes>
-                    <Route element={<Outlet context={{setPlaceCount: vi.fn(), setMyWeekend: vi.fn()}} />}>
+                    <Route element={<Outlet context={{myWeekend: [], setMyWeekend: vi.fn()}} />}>
                         <Route path="/:category" element={<Category />} />
                     </Route>
                 </Routes>
@@ -153,7 +153,7 @@ describe("Error state", () => {
         render(
             <MemoryRouter initialEntries={["/restaurants"]}>
                 <Routes>
-                    <Route element={<Outlet context={{setPlaceCount: vi.fn(), setMyWeekend: vi.fn()}} />}>
+                    <Route element={<Outlet context={{myWeekend: [], setMyWeekend: vi.fn()}} />}>
                         <Route path="/:category" element={<Category />} />
                     </Route>
                 </Routes>
