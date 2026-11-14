@@ -72,3 +72,24 @@ describe("group size behavior", () => {
         expect(groupSize).toHaveValue(4);
     });
 })
+
+describe("remove from myweekend behavior", () => {
+    it("call appropriate fn on remove place button click", async () => {
+        // arrange
+        const updateMyWeekend = vi.fn();
+        render(
+            <ItemCart 
+                groupSize={4}
+                updateMyWeekend={updateMyWeekend}
+            />
+        );
+        const removeBtn = screen.getByRole("button", {name: /Remove from My Weekend/i});
+        const user = userEvent.setup();
+
+        // act
+        await user.click(removeBtn);
+
+        // assert
+        expect(updateMyWeekend).toHaveBeenCalled();
+    })
+});
