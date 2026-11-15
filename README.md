@@ -31,7 +31,7 @@ This was built as part of **The Odin Project** curriculum (thanks to the TOP com
 
 ### **Try it online**
 
-**Live app:** [https://YOUR-CAMPUS-ESCAPE-URL](https://YOUR-CAMPUS-ESCAPE-URL) — replace this placeholder with your Vercel (or other) deploy URL once it is live. Opens in the browser; no account required. Needs network access for Geoapify.
+**Live app:** [https://campusescape.vercel.app/](https://campusescape.vercel.app/) — opens in the browser; no account required. Needs network access for Geoapify.
 
 ### **Run it locally** (if you are cloning or tweaking the code)
 
@@ -87,7 +87,7 @@ Built files are written to `dist/` (gitignored). Preview the build with `npm run
 
 ## Using the app
 
-The same behavior applies on the live demo (once you fill in the URL above) and when you run the dev server locally.
+The same behavior applies on the [live demo](https://campusescape.vercel.app/) and when you run the dev server locally.
 
 ### Features
 
@@ -123,7 +123,7 @@ The same behavior applies on the live demo (once you fill in the URL above) and 
 
 This project is set up to host on **Vercel** (or any static host that runs `npm run build` and serves `dist/`). Connecting the GitHub repo is enough: the host runs the build and serves the output. `dist/` stays out of git.
 
-**Live site:** [https://YOUR-CAMPUS-ESCAPE-URL](https://YOUR-CAMPUS-ESCAPE-URL) — replace with your real deploy URL.
+**Live site:** [https://campusescape.vercel.app/](https://campusescape.vercel.app/)
 
 You could also host the same `dist/` output on Netlify, Cloudflare Pages, or GitHub Pages.
 
