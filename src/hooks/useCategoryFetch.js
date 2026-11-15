@@ -72,5 +72,9 @@ export default function useCategoryFetch() {
 
     }, [category]);
 
-    return {categories, category, data, error, loading, imageUrl};
+    function isValidCategory() {
+        return Object.hasOwn(categories, category);
+    }
+
+    return {categories, category, isValidCategory, data, error, loading, imageUrl};
 }

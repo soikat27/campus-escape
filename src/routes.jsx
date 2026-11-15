@@ -2,11 +2,13 @@ import App from "./components/App/App.jsx";
 import Home from "./components/Home/Home.jsx";
 import Checkout from "./components/Checkout/Checkout.jsx";
 import Category from "./components/Category/Category.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 
 const routes = [
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,

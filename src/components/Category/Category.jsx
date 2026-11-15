@@ -4,8 +4,11 @@ import useCategoryFetch from "../../hooks/useCategoryFetch.js";
 import useMyWeekendContext from "../../hooks/useMyWeekendContext.js";
 
 export default function Category() {
-    const {categories, category, data, error, loading, imageUrl} = useCategoryFetch();
+    const {categories, category, isValidCategory, data, error, loading, imageUrl} = useCategoryFetch();
     const {myWeekend, setMyWeekend} = useMyWeekendContext();
+
+    if(!isValidCategory())
+        throw new Error("Invalid Category");
 
     function isSelected(placeId) {
         return myWeekend.some(place => (
